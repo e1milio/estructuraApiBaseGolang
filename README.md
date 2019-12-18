@@ -1,1 +1,1 @@
-# genericApiProject.go
+# Estructura Api Base Golang
