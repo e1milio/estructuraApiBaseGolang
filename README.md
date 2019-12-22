@@ -9,6 +9,7 @@ Se inspiró en el framework Laravel para PHP.
 ## Instalación
 
 - $ mv env-ejemplo.json env.json
+- $ go mod download
 
 ## Run
 - $ go run main.go 

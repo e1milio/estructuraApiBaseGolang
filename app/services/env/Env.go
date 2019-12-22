@@ -19,4 +19,3 @@ type DBConfig struct {
 	UserName   string `json:"USERNAME"`
 	Password   string `json:"PASSWORD"`
 }
-

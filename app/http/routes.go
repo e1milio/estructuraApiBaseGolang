@@ -5,7 +5,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-// Routes crea las rutas de la aplicación
+// Routes carga las rutas de la aplicación
 func Routes(e *echo.Echo) {
 
 	routes.StaticRoutes(e)

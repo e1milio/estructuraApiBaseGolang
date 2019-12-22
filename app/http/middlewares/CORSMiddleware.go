@@ -5,13 +5,9 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-// CORSMiddleware encargado de logear los accessos a la aplicación
-type CORSMiddleware struct {
-}
+// CORSMiddleware función intermediaria para retornar el middleware CORS del framework Echo
+func CORSMiddleware() echo.MiddlewareFunc {
 
-// Handle función que aplica el middleware
-func (CORSMiddleware CORSMiddleware) Handle(e *echo.Echo) {
-
-	e.Use(middleware.CORS())
+	return middleware.CORS();
 
 }

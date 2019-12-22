@@ -11,21 +11,21 @@ import (
 // lock mutex
 var lock = &sync.Mutex{}
 
-// Open Crea y retorna una instancia de gorm.DB
+// Open Crea y retorna una instancia de gorm.DBn
 func Open() *gorm.DB {
 
 	db, _ := openDBConfig(env.Get().DB[0])
 	return db
 }
 
-// OpenWithError Crea y retorna una instancia de gorm.DB junto a un error
+// OpenWithError Crea y retorna una instancia de gorm.DB y un error
 func OpenWithError() (*gorm.DB, error) {
 
 	db, err := openDBConfig(env.Get().DB[0])
 	return db, err
 }
 
-// OpenDB Crea y retorna una instancia de gorm.DB
+// OpenDB Crea y retorna la instancia de gorm.DB especifiacada por parámetro
 func OpenDB(dbName string) *gorm.DB {
 
 	for _, element := range env.Get().DB {
@@ -40,7 +40,7 @@ func OpenDB(dbName string) *gorm.DB {
 	return nil
 }
 
-// OpenDBWithError Crea y retorna una instancia de gorm.DB junto a un error
+// OpenDBWithError Crea y retorna la instancia de gorm.DB específicada por parámetros junto a un error
 func OpenDBWithError(dbName string) (*gorm.DB, error) {
 
 	for _, element := range env.Get().DB {
@@ -55,7 +55,7 @@ func OpenDBWithError(dbName string) (*gorm.DB, error) {
 	return nil, *new(error)
 }
 
-// OpenDB Crea y retorna una instancia de gorm.DB
+// OpenDB Crea y retorna una instancia de gorm.DB con la configuración declarada en el archivo env.json
 func openDBConfig(dbConfig env.DBConfig) (*gorm.DB, error) {
 
 	// Declaro las variables que voy a retornar

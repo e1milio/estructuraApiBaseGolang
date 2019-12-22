@@ -8,12 +8,8 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-// LoggerMiddleware encargado de logear los accessos a la aplicación
-type LoggerMiddleware struct {
-}
-
-// Handle función que aplica el middleware
-func (loggerMiddleware LoggerMiddleware) Handle(e *echo.Echo) {
+// LoggerMiddleware función intermediaria para retornar el middleware Logger del framework Echo
+func LoggerMiddleware() echo.MiddlewareFunc {
 
 	logsFile, err := os.OpenFile("logs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -21,8 +17,8 @@ func (loggerMiddleware LoggerMiddleware) Handle(e *echo.Echo) {
 	}
 	//defer logsFile.Close()
 
-	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+	return middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Output: logsFile,
-	}))
+	})
 
 }

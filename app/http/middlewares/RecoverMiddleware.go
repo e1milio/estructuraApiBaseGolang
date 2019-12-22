@@ -5,13 +5,9 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-// RecoverMiddleware encargado de logear los accessos a la aplicación
-type RecoverMiddleware struct {
-}
+// RecoverMiddleware función intermediaria para retornar el middleware Recover del framework Echo
+func RecoverMiddleware() echo.MiddlewareFunc {
 
-// Handle función que aplica el middleware
-func (RecoverMiddleware RecoverMiddleware) Handle(e *echo.Echo) {
-
-	e.Use(middleware.Recover())
+	return middleware.Recover();
 
 }
