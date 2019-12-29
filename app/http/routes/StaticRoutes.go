@@ -1,6 +1,6 @@
 package routes
 
-import "github.com/labstack/echo"
+import "github.com/labstack/echo/v4"
 
 // StaticRoutes crea las rutas estáticas de la aplicación
 func StaticRoutes(e *echo.Echo) {

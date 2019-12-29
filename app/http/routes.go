@@ -2,7 +2,7 @@ package http
 
 import (
 	"estructuraapibasegolang/app/http/routes"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 // Routes carga las rutas de la aplicación

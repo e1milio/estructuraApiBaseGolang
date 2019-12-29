@@ -2,7 +2,7 @@ package http
 
 import (
 	"estructuraapibasegolang/app/http/middlewares"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 // Middlewares carga todos los middlewares de la aplicación

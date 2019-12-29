@@ -6,7 +6,7 @@ import (
 
 	"estructuraapibasegolang/app/services/env"
 	"estructuraapibasegolang/app/services/response"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 // AppInfoController brinda información general sobre la aplicación

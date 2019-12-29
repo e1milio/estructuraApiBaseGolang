@@ -3,7 +3,7 @@ package app
 import (
 	"estructuraapibasegolang/app/http"
 	"estructuraapibasegolang/app/services/env"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 // Boot inicia la api

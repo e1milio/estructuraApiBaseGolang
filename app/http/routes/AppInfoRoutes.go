@@ -2,7 +2,7 @@ package routes
 
 import (
 	"estructuraapibasegolang/app/http/controllers"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 // AppInfoRoutes crea las rutas de la aplicación
