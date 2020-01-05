@@ -13,7 +13,7 @@ func LoggerMiddleware() echo.MiddlewareFunc {
 
 	logsFile, err := os.OpenFile("logs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
-		log.Fatalf("No se pudo abrir o crear el archivo de logs: %v", err)
+		log.Println("No se pudo abrir o crear el archivo de logs")
 	}
 	//defer logsFile.Close()
 
