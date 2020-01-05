@@ -10,5 +10,6 @@ func Routes(e *echo.Echo) {
 
 	routes.StaticRoutes(e)
 	routes.AppInfoRoutes(e)
+	routes.AuthRoutes(e)
 
 }

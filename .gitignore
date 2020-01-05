@@ -1,3 +1,5 @@
 .vscode
 env.json
 logs.log
+private.rsa
+public.rsa.pub

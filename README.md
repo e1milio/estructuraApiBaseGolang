@@ -13,3 +13,7 @@ Se inspiró en el framework Laravel para PHP.
 
 ## Run
 - $ go run main.go 
+
+## Opcional - Certificados para auth
+- $ openssl genrsa -out private.rsa 1024
+- $ openssl rsa -in private.rsa -pubout > public.rsa.pub
