@@ -2,6 +2,7 @@ package response
 
 import (
 	"github.com/labstack/echo/v4"
+	"net/http"
 )
 
 // Response encargado enviar respuestas
@@ -27,8 +28,8 @@ func New(c echo.Context) *Response {
 			Paginado: "",
 		},
 		State: State{
-			Code:        404,
-			Status:      response.getStatusToCode(404),
+			Code:        200,
+			Status:      http.StatusText(200),
 			Message:     "",
 			Description: "",
 		},
@@ -42,13 +43,6 @@ func (response *Response) Send() error {
 
 	// Envio la respuesta
 	return response.Context.JSON(response.Estructura.State.Code, response.Estructura)
-
-}
-
-// SendOk envia una respuesta con codigo 200
-func (response *Response) SendOk() error {
-
-	return response.Code(200).Send()
 
 }
 
@@ -83,33 +77,8 @@ func (response *Response) Description(description string) *Response {
 func (response *Response) Code(code int) *Response {
 
 	response.Estructura.State.Code = code
-	response.Estructura.State.Status = response.getStatusToCode(code)
+	response.Estructura.State.Status = http.StatusText(code)
 
 	return response
 
-}
-
-// etStatusToCode retorna el status
-func (response *Response) getStatusToCode(code int) string {
-
-	var status string
-
-	switch code {
-	case 200:
-		status = "OK"
-	case 400:
-		status = "BAD_REQUEST"
-	case 401:
-		status = "UNAUTHORIZED"
-	case 403:
-		status = "FORBIDDEN"
-	case 404:
-		status = "NOT_FOUND"
-	case 500:
-		status = "INTERNAL_SERVER_ERROR"
-	default:
-		status = "ERROR"
-	}
-
-	return status
 }

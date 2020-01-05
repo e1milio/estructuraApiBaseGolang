@@ -38,7 +38,7 @@ func (authController AuthController) Login(c echo.Context) error {
 		Token: token,
 	}
 
-	return response.New(c).Data(rst).SendOk()
+	return response.New(c).Data(rst).Send()
 }
 
 // TestToken
@@ -46,5 +46,5 @@ func (authController AuthController) TestToken(c echo.Context) error {
 
 	auth_token := auth.GetToken(c.Get("auth_token"))
 
-	return response.New(c).Data(auth_token).SendOk()
+	return response.New(c).Data(auth_token).Send()
 }
