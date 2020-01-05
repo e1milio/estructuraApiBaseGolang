@@ -22,12 +22,12 @@ func GetPrivateKey() *rsa.PrivateKey {
 
 		privateBytes, err := ioutil.ReadFile("private.rsa")
 		if err != nil {
-			log.Fatal("No se pudo leer el archivo privado")
+			log.Println("auth.go - No se pudo leer el archivo private.rsa")
 		}
 
 		privateKey, err = jwt.ParseRSAPrivateKeyFromPEM(privateBytes)
 		if err != nil {
-			log.Fatal("No se pudo hacer el parse a privateKey")
+			log.Println("auth.go - No se pudo hacer el parse a privateKey")
 		}
 
 	})
@@ -42,12 +42,12 @@ func GetPublicKey() *rsa.PublicKey {
 
 		publicBytes, err := ioutil.ReadFile("public.rsa.pub")
 		if err != nil {
-			log.Fatal("No se pudo leer el archivo publico")
+			log.Println("auth.go - No se pudo leer el archivo public.rsa.pub")
 		}
 
 		publicKey, err = jwt.ParseRSAPublicKeyFromPEM(publicBytes)
 		if err != nil {
-			log.Fatal("No se pudo hacer el parse a publicKey")
+			log.Println("auth.go - No se pudo hacer el parse a publicKey")
 		}
 
 	})
