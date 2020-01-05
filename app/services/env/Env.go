@@ -7,6 +7,8 @@ type Env struct {
 	AppPort    string `json:"APP_PORT"`
 	URLAPIExterna    string `json:"URL_API_EXTERNA"`
 	DB         []DBConfig `json:"DB"`
+	AuthUser string `json:"AUTH_USER"`
+	AuthPassword string `json:"AUTH_PASSWORD"`
 }
 
 // DBConfig subestructura de env

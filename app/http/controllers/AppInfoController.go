@@ -32,5 +32,5 @@ func (appInfoController AppInfoController) GetVersion(c echo.Context) error {
 		Version: env.Get().AppVersion,
 	}
 
-	return response.New(c).Data(rst).SendOk()
+	return response.New(c).Data(rst).Send()
 }

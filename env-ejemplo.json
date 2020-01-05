@@ -23,5 +23,8 @@
                 "USERNAME": "root",
                 "PASSWORD": "********"
             }
-        ]
+        ],
+
+    "AUTH_USER": "admin",
+    "AUTH_PASSWORD": "1234"
 }
