@@ -12,10 +12,10 @@ func AuthRoutes(e *echo.Echo) {
 	// Se declaran los controladores que se usarán
 	var authController controllers.AuthController
 
-	e.POST("/auth/login", authController.Login) // Ruta para logear un usuario
+	e.POST("/auth", authController.Login) // Ruta para logear un usuario
 
-	group := e.Group("/auth/test")
+	group := e.Group("/auth/token")
 	group.Use(middlewares.JWTMiddleware())
-	group.POST("", authController.TestToken) // Ruta para conocer el status del token
+	group.GET("", authController.TestToken) // Ruta para conocer el status del token
 
 }

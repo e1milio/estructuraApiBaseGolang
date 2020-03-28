@@ -22,13 +22,13 @@ func (authController AuthController) Login(c echo.Context) error {
 
 	// Verifico que las credenciales sean correctas
 	if username != env.Get().AuthUser || password != env.Get().AuthPassword {
-		return response.New(c).Code(401).Send()
+		return response.New(c).Code(401).HideRequest().Send()
 	}
 
 	// Obtengo el token
 	token, err := auth.CreateToken(username)
 	if err != nil {
-		return response.New(c).Code(500).Data(err.Error()).Send()
+		return response.New(c).Code(500).Data(err.Error()).HideRequest().Send()
 	}
 
 	// Creo la respuesta
@@ -38,13 +38,13 @@ func (authController AuthController) Login(c echo.Context) error {
 		Token: token,
 	}
 
-	return response.New(c).Data(rst).Send()
+	return response.New(c).Data(rst).HideRequest().Send()
 }
 
-// TestToken
+// TestToken verify the validity of a token
 func (authController AuthController) TestToken(c echo.Context) error {
 
-	auth_token := auth.GetToken(c.Get("auth_token"))
+	authToken := auth.GetToken(c.Get("auth_token"))
 
-	return response.New(c).Data(auth_token).Send()
+	return response.New(c).Data(authToken).Send()
 }

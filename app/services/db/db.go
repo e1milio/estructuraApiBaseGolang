@@ -1,11 +1,12 @@
 package db
 
 import (
+	"errors"
 	"sync"
 
-	"estructuraapibasegolang/app/services/env"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"mano.principalBack/app/services/env"
 )
 
 // lock mutex
@@ -52,7 +53,7 @@ func OpenDBWithError(dbName string) (*gorm.DB, error) {
 		}
 	}
 
-	return nil, *new(error)
+	return nil, errors.New("invalid database source")
 }
 
 // OpenDB Crea y retorna una instancia de gorm.DB con la configuración declarada en el archivo env.json
@@ -86,7 +87,7 @@ func openDBConfig(dbConfig env.DBConfig) (*gorm.DB, error) {
 				"?loc=Local"
 
 		default:
-			return nil, *new(error)
+			return nil, errors.New("invalid database source")
 		}
 
 		// Abro una conección

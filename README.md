@@ -4,11 +4,11 @@ Se inspiró en el framework Laravel para PHP.
 
 ## Requisitos
 
-- GO 1.13
+- GO 1.14
 
 ## Instalación
 
-- $ mv env-ejemplo.json env.json
+- $ cp env-ejemplo.json env.json
 - $ go mod download
 
 ## Run

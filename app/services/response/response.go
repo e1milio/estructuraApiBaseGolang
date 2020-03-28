@@ -1,13 +1,14 @@
 package response
 
 import (
-	"github.com/labstack/echo/v4"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
 // Response encargado enviar respuestas
 type Response struct {
-	Context  echo.Context
+	Context    echo.Context
 	Estructura ResponseStruct
 }
 
@@ -19,7 +20,7 @@ func New(c echo.Context) *Response {
 	response.Context = c
 
 	// Creo la respuesta por defecto
-	params, _ :=c.FormParams()
+	params, _ := c.FormParams()
 	response.Estructura = ResponseStruct{
 		Data: "",
 		Metadata: Metadata{
@@ -78,6 +79,15 @@ func (response *Response) Code(code int) *Response {
 
 	response.Estructura.State.Code = code
 	response.Estructura.State.Status = http.StatusText(code)
+
+	return response
+
+}
+
+// HideRequest envia un Request vacio
+func (response *Response) HideRequest() *Response {
+
+	response.Estructura.Metadata.Request = "hidden by api"
 
 	return response
 
