@@ -14,14 +14,14 @@ type AppInfoController struct {
 }
 
 // GetStatus retorna un estado de ok si la aplicación está corriendo
-func (appInfoController AppInfoController) GetStatus(c echo.Context) error {
+func (AppInfoController) GetStatus(c echo.Context) error {
 
 	return c.NoContent(http.StatusOK)
 
 }
 
 // GetVersion retorna la versión de la aplicación
-func (appInfoController AppInfoController) GetVersion(c echo.Context) error {
+func (AppInfoController) GetVersion(c echo.Context) error {
 
 	// Creo la respuesta
 	rst := struct {

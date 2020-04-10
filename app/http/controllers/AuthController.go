@@ -14,7 +14,7 @@ type AuthController struct {
 }
 
 // Login
-func (authController AuthController) Login(c echo.Context) error {
+func (AuthController) Login(c echo.Context) error {
 
 	// Obtengo los parámetros para el login
 	username := c.FormValue("username")
@@ -42,7 +42,7 @@ func (authController AuthController) Login(c echo.Context) error {
 }
 
 // TestToken verify the validity of a token
-func (authController AuthController) TestToken(c echo.Context) error {
+func (AuthController) TestToken(c echo.Context) error {
 
 	authToken := auth.GetToken(c.Get("auth_token"))
 

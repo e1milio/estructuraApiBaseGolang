@@ -8,6 +8,6 @@ import (
 // RecoverMiddleware función intermediaria para retornar el middleware Recover del framework Echo
 func RecoverMiddleware() echo.MiddlewareFunc {
 
-	return middleware.Recover();
+	return middleware.Recover()
 
 }

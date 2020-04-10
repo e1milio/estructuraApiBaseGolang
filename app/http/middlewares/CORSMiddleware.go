@@ -8,6 +8,6 @@ import (
 // CORSMiddleware función intermediaria para retornar el middleware CORS del framework Echo
 func CORSMiddleware() echo.MiddlewareFunc {
 
-	return middleware.CORS();
+	return middleware.CORS()
 
 }
